@@ -1,10 +1,10 @@
 <template>
-  <el-container>
+  <el-container class="home-container">
     <el-header>
       <div class="logo_box">
         <img src="../assets/heima.png"
              alt="">
-        <router-link to="/home">电商后台</router-link>
+        <span>电商后台管理系统</span>
       </div>
       <div class="user_box">
 
@@ -39,22 +39,31 @@ export default {
 </script>
 
 <style lang="less">
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
-  color: #333;
-  text-align: center;
-  line-height: 60px;
+.home-container {
+  height: 100%;
 }
+
 .el-header {
+  color: white;
+  background-color: #373d41;
   display: flex;
   justify-content: space-between;
+  padding-left: 0;
+  align-items: center;
+  font-size: 20px;
   .logo_box {
-    // float: left;
+    display: flex;
+    align-items: center;
+    img {
+      width: 50px;
+    }
+    span {
+      margin-left: 15px;
+    }
   }
 }
 .el-aside {
-  background-color: #d3dce6;
+  background-color: #333744;
   color: #333;
   text-align: center;
   line-height: 200px;
@@ -66,7 +75,12 @@ export default {
   text-align: center;
   line-height: 160px;
 }
-
+.el-footer {
+  background-color: #b3c0d1;
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+}
 body > .el-container {
   margin-bottom: 40px;
 }
