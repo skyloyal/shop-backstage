@@ -9,7 +9,23 @@ import {
   Header,
   Aside,
   Footer,
-  Main
+  Main,
+  Menu,
+  MenuItem,
+  MenuItemGroup,
+  Submenu,
+  Breadcrumb,
+  BreadcrumbItem,
+  Card,
+  Table,
+  TableColumn,
+  Row,
+  Col,
+  Switch,
+  Tooltip,
+  Dialog,
+  Pagination,
+  MessageBox
 } from 'element-ui'
 
 Vue.component(Button.name, Button)
@@ -21,5 +37,21 @@ Vue.component(Header.name, Header)
 Vue.component(Aside.name, Aside)
 Vue.component(Footer.name, Footer)
 Vue.component(Main.name, Main)
+Vue.component(Menu.name, Menu)
+Vue.component(MenuItem.name, MenuItem)
+Vue.component(MenuItemGroup.name, MenuItemGroup)
+Vue.component(Submenu.name, Submenu)
+Vue.component(Breadcrumb.name, Breadcrumb)
+Vue.component(BreadcrumbItem.name, BreadcrumbItem)
+Vue.component(Card.name, Card)
+Vue.component(Table.name, Table)
+Vue.component(Row.name, Row)
+Vue.component(Col.name, Col)
+Vue.component(TableColumn.name, TableColumn)
+Vue.component(Switch.name, Switch)
+Vue.component(Tooltip.name, Tooltip)
+Vue.component(Dialog.name, Dialog)
+Vue.component(Pagination.name, Pagination)
 
+Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$message = Message

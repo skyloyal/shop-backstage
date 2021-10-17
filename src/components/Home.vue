@@ -1,5 +1,7 @@
 <template>
+  <!-- 头部 -->
   <el-container class="home-container">
+
     <el-header>
       <div class="logo_box">
         <img src="../assets/heima.png"
@@ -13,10 +15,54 @@
       </div>
 
     </el-header>
+
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
+      <!-- 侧边栏 -->
+      <el-aside :width="asideWidth">
+        <!-- 侧边栏菜单区域 -->
+        <div class="toggle-button"
+             @click="toggleCollapse">
+          |||
+        </div>
+        <el-menu :default-active="activePath"
+                 background-color="#333744"
+                 text-color="#fff"
+                 active-text-color="#007ACC"
+                 unique-opened
+                 :collapse="isCollapse"
+                 :collapse-transition="false"
+                 router>
+          <!-- 一级菜单 -->
+          <el-submenu :index="item.id + ''"
+                      v-for="item in menuList"
+                      :key="item.id">
+            <!-- 一级菜单模板区 -->
+            <template slot="title">
+              <!-- 图标 -->
+              <i :class="iconsObj[item.id]"></i>
+              <!-- 文本 -->
+              <span>{{item.authName}}</span>
+            </template>
+            <!-- 二级菜单 -->
+            <el-menu-item :index="'/'+subItem.path"
+                          v-for="subItem in item.children"
+                          :key="subItem.id"
+                          @click="saveNavState('/'+subItem.path)">
+              <template slot="title">
+                <!-- 图标 -->
+                <i class="el-icon-menu"></i>
+                <!-- 文本 -->
+                <span>{{subItem.authName}}</span>
+              </template>
+            </el-menu-item>
+          </el-submenu>
+        </el-menu>
+      </el-aside>
       <el-container>
-        <el-main>Main</el-main>
+        <!-- 内容主体 -->
+        <el-main>
+          <router-view></router-view>
+        </el-main>
         <el-footer>Footer</el-footer>
       </el-container>
     </el-container>
@@ -25,6 +71,25 @@
 
 <script>
 export default {
+  data () {
+    return {
+      menuList: [],
+      iconsObj: {
+        '125': 'iconfont icon-user',
+        '103': 'iconfont icon-tijikongjian',
+        '101': 'iconfont icon-shangpin',
+        '102': 'iconfont icon-danju',
+        '145': 'iconfont icon-baobiao'
+      },
+      isCollapse: false,
+      asideWidth: '200px',
+      activePath: ''
+    }
+  },
+  created () {
+    this.getMenuList()
+    this.activePath = window.sessionStorage.getItem('activePath')
+  },
   methods: {
     logout () {
       window.sessionStorage.clear()
@@ -33,6 +98,31 @@ export default {
         type: 'success'
       })
       this.$router.push('/login')
+    },
+    // 获取所有菜单
+    async getMenuList () {
+      const { data: res } = await this.$axios.get('menus')
+      // console.log(res)
+      if (res.meta.status !== 200) {
+        return this.$message({
+          message: res.meta.msg,
+          type: 'error'
+        })
+      }
+      this.menuList = res.data
+      // console.log(this.menuList)
+    },
+    toggleCollapse () {
+      this.isCollapse = !this.isCollapse
+      if (this.isCollapse) {
+        this.asideWidth = '64px'
+      } else {
+        this.asideWidth = '200px'
+      }
+    },
+    saveNavState (activePath) {
+      window.sessionStorage.setItem('activePath', activePath)
+      this.activePath = window.sessionStorage.getItem('activePath')
     }
   }
 }
@@ -65,15 +155,23 @@ export default {
 .el-aside {
   background-color: #333744;
   color: #333;
-  text-align: center;
-  line-height: 200px;
+  .toggle-button {
+    background-color: #4a4f61;
+    font-size: 12px;
+    line-height: 24px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    letter-spacing: 0.2em;
+  }
+  .el-menu {
+    border-right: none;
+  }
 }
 
 .el-main {
   background-color: #e9eef3;
   color: #333;
-  text-align: center;
-  line-height: 160px;
 }
 .el-footer {
   background-color: #b3c0d1;
@@ -85,12 +183,7 @@ body > .el-container {
   margin-bottom: 40px;
 }
 
-.el-container:nth-child(5) .el-aside,
-.el-container:nth-child(6) .el-aside {
-  line-height: 260px;
-}
-
-.el-container:nth-child(7) .el-aside {
-  line-height: 320px;
+.iconfont {
+  margin-right: 10px;
 }
 </style>
