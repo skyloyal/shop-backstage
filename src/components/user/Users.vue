@@ -79,7 +79,7 @@
               <el-button type="danger"
                          size="mini"
                          icon="el-icon-delete"
-                         @click="removeUserById(scope.row.id)"></el-button>
+                         @click="showRemoveDialog(scope.row.id)"></el-button>
             </el-tooltip>
             <!-- 设置角色 -->
             <el-tooltip effect="dark"
@@ -88,7 +88,8 @@
                         placement="top">
               <el-button type="warning"
                          size="mini"
-                         icon="el-icon-setting"></el-button>
+                         icon="el-icon-setting"
+                         @click="showSetDialog(scope.row)"></el-button>
             </el-tooltip>
           </template>
         </el-table-column>
@@ -102,7 +103,7 @@
                      :total="total">
       </el-pagination>
     </el-card>
-    <!-- 添加用户的对话框 -->
+    <!-- 添加用户对话框 -->
     <el-dialog title="添加用户"
                :visible.sync="addDialogVisible"
                width="50%">
@@ -135,11 +136,10 @@
                    @click="submitAddDialog">确 定</el-button>
       </span>
     </el-dialog>
-    <!-- 编辑用户Dialog -->
+    <!-- 编辑用户对话框 -->
     <el-dialog title="修改用户信息"
                :visible.sync="editDialogVisible"
                width="50%">
-      <!-- <span>{{editForm}}</span> -->
       <el-form :model="editForm"
                :rules="editFormRules"
                ref="editFormRef"
@@ -166,6 +166,30 @@
                    @click="submitEditDialog">确 定</el-button>
       </span>
     </el-dialog>
+    <!-- 分配角色对话框 -->
+    <el-dialog title="设置用户角色"
+               :visible.sync="setDialogVisible"
+               width="30%">
+      <p>当前用户名称:{{setForm.userInfo.username}}</p>
+      <p>当前用户角色:{{setForm.userInfo.role_name}}</p>
+      <el-radio-group v-model="setForm.checkedRoleId"
+                      class="vertical">
+        <el-radio v-for="role in rolesList"
+                  :key="role.id"
+                  :label="role.id"
+                  border
+                  class="roleCheckbox">
+          {{role.roleName}}
+        </el-radio>
+      </el-radio-group>
+
+      <span slot="footer"
+            class="dialog-footer">
+        <el-button @click="closeSetDialog">取 消</el-button>
+        <el-button type="primary"
+                   @click="submitSetDialog">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -180,11 +204,15 @@ export default {
       queryInfo: {
         query: '',
         pagenum: 1,
-        pagesize: 2
+        pagesize: 10
       },
+      // 用户总数
       total: 0,
       // 用户列表
       userList: [],
+
+      // 添加用户
+      addDialogVisible: false,
       // 添加用户的表单信息
       addForm: {
         username: '',
@@ -211,7 +239,8 @@ export default {
           { type: 'number', message: '请输入正确的电话号码', trigger: 'blur' }
         ],
       },
-
+      // 设置用户
+      editDialogVisible: false,
       editForm: {
       },
       // 修改用户的表单验证规则
@@ -226,8 +255,15 @@ export default {
           { type: 'number', message: '请输入正确的电话号码', trigger: 'blur' }
         ],
       },
-      addDialogVisible: false,
-      editDialogVisible: false
+
+      // 分配用户
+      rolesList: [],
+      setForm: {
+        userInfo: {},
+        checkedRoleId: '',
+        userId: ''
+      },
+      setDialogVisible: false,
     }
   },
   computed: {
@@ -352,7 +388,7 @@ export default {
       this.$message.success(`更新用户状态成功`)
     },
     // 删除用户
-    async removeUserById (userid) {
+    async showRemoveDialog (userId) {
       // console.log(userid)
       const confirmResult = await this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
         confirmButtonText: '确定',
@@ -364,7 +400,7 @@ export default {
       if (confirmResult !== 'confirm') {
         return this.$message.info('取消删除')
       }
-      const { data: res } = await this.$axios.delete(`users/${userid}`)
+      const { data: res } = await this.$axios.delete(`users/${userId}`)
       if (res.meta.status !== 200) {
         return this.$message({
           type: 'error',
@@ -373,10 +409,58 @@ export default {
       }
       this.$message.success('成功删除用户')
       this.getUserList()
+    },
+    // 展示设置用户角色对话框
+    async showSetDialog (user) {
+      // console.log(user.id)
+      // 获取角色列表
+      let userId = user.id
+      const { data: res } = await this.$axios.get('roles')
+      if (res.meta.status !== 200) {
+        return this.$message.error('获取角色列表失败')
+      }
+      this.rolesList = res.data
+      // 根据ID查询用户的角色ID
+      const { data: res2 } = await this.$axios.get(`users/${userId}`)
+      if (res2.meta.status !== 200) {
+        return this.$message.error('获取当前用户信息失败')
+      }
+      console.log(res.data)
+      this.$set(this.setForm, 'userInfo', user)
+      this.setForm.userId = userId
+      this.setForm.checkedRoleId = res2.data.rid
+      console.log(this.setForm)
+      this.setDialogVisible = true
+    },
+    // 关闭设置用户角色对话框
+    closeSetDialog () {
+      this.setDialogVisible = false
+    },
+    // 提交设置用户角色对话框
+    async submitSetDialog () {
+      if (this.setForm.checkedRoleId === '' || this.setForm.checkedRoleId === -1) {
+        return this.closeSetDialog()
+      }
+      const { data: res } = await this.$axios.put(`users/${this.setForm.userId}/role`, {
+        rid: this.setForm.checkedRoleId
+      })
+      if (res.meta.status !== 200) {
+        return this.$message.error('分配用户角色失败')
+      }
+      this.$message.success(`用户${res.data.username}已成功分配角色`)
+      this.getUserList()
+      this.closeSetDialog()
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+.roleCheckbox {
+  margin: 0px 0px 10px 10px;
+}
 </style>

@@ -25,7 +25,13 @@ import {
   Tooltip,
   Dialog,
   Pagination,
-  MessageBox
+  MessageBox,
+  Tag,
+  Tree,
+  Checkbox,
+  CheckboxGroup,
+  Radio,
+  RadioGroup
 } from 'element-ui'
 
 Vue.component(Button.name, Button)
@@ -52,6 +58,12 @@ Vue.component(Switch.name, Switch)
 Vue.component(Tooltip.name, Tooltip)
 Vue.component(Dialog.name, Dialog)
 Vue.component(Pagination.name, Pagination)
+Vue.component(Tag.name, Tag)
+Vue.component(Tree.name, Tree)
+Vue.component(CheckboxGroup.name, CheckboxGroup)
+Vue.component(Checkbox.name, Checkbox)
+Vue.component(RadioGroup.name, RadioGroup)
+Vue.component(Radio.name, Radio)
 
 Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$message = Message
