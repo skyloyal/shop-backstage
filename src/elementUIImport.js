@@ -31,7 +31,8 @@ import {
   Checkbox,
   CheckboxGroup,
   Radio,
-  RadioGroup
+  RadioGroup,
+  Cascader
 } from 'element-ui'
 
 Vue.component(Button.name, Button)
@@ -64,6 +65,7 @@ Vue.component(CheckboxGroup.name, CheckboxGroup)
 Vue.component(Checkbox.name, Checkbox)
 Vue.component(RadioGroup.name, RadioGroup)
 Vue.component(Radio.name, Radio)
+Vue.component(Cascader.name, Cascader)
 
 Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$message = Message
