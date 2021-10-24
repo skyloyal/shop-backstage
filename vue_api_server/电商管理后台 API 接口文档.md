@@ -914,7 +914,7 @@ type=tree
             "cat_id": 22,
             "attr_sel": "only",
             "attr_write": "manual",
-            "attr_vals": "ffff"
+            "attr_vals": "ffff"{}
         }
     ],
     "meta": {

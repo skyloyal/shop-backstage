@@ -32,7 +32,10 @@ import {
   CheckboxGroup,
   Radio,
   RadioGroup,
-  Cascader
+  Cascader,
+  Alert,
+  TabPane,
+  Tabs
 } from 'element-ui'
 
 Vue.component(Button.name, Button)
@@ -66,6 +69,8 @@ Vue.component(Checkbox.name, Checkbox)
 Vue.component(RadioGroup.name, RadioGroup)
 Vue.component(Radio.name, Radio)
 Vue.component(Cascader.name, Cascader)
-
+Vue.component(Alert.name, Alert)
+Vue.use(Tabs)
+Vue.use(TabPane)
 Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$message = Message
