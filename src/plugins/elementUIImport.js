@@ -35,7 +35,10 @@ import {
   Cascader,
   Alert,
   TabPane,
-  Tabs
+  Tabs,
+  Steps,
+  Step,
+  Upload
 } from 'element-ui'
 
 Vue.component(Button.name, Button)
@@ -72,5 +75,8 @@ Vue.component(Cascader.name, Cascader)
 Vue.component(Alert.name, Alert)
 Vue.use(Tabs)
 Vue.use(TabPane)
+Vue.use(Steps)
+Vue.use(Step)
+Vue.use(Upload)
 Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$message = Message
