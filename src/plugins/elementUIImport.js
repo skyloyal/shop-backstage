@@ -38,7 +38,9 @@ import {
   Tabs,
   Steps,
   Step,
-  Upload
+  Upload,
+  Timeline,
+  TimelineItem
 } from 'element-ui'
 
 Vue.component(Button.name, Button)
@@ -78,5 +80,7 @@ Vue.use(TabPane)
 Vue.use(Steps)
 Vue.use(Step)
 Vue.use(Upload)
+Vue.use(Timeline)
+Vue.use(TimelineItem)
 Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$message = Message
