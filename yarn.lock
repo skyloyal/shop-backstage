@@ -1409,6 +1409,13 @@
   optionalDependencies:
     "prettier" "^1.18.2"
 
+"@vue/composition-api@^1.2.4":
+  "integrity" "sha1-S+/O/A4cVw/Qh5oti4+QHzpONdA="
+  "resolved" "https://registry.npmmirror.com/@vue/composition-api/download/@vue/composition-api-1.2.4.tgz"
+  "version" "1.2.4"
+  dependencies:
+    "tslib" "^2.3.0"
+
 "@vue/preload-webpack-plugin@^1.1.0":
   "integrity" "sha1-zrkktOyzucQ4ccekKaAvhCPmIas="
   "resolved" "https://registry.nlark.com/@vue/preload-webpack-plugin/download/@vue/preload-webpack-plugin-1.1.2.tgz"
@@ -2768,6 +2775,11 @@
   "resolved" "https://registry.npmmirror.com/core-js/download/core-js-2.6.12.tgz"
   "version" "2.6.12"
 
+"core-js@^2.6.5":
+  "integrity" "sha1-2TM9+nsGXjR8xWgiGdb2kIWcwuw="
+  "resolved" "https://registry.npmmirror.com/core-js/download/core-js-2.6.12.tgz?cache=0&sync_timestamp=1635142915013&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcore-js%2Fdownload%2Fcore-js-2.6.12.tgz"
+  "version" "2.6.12"
+
 "core-js@^3.6.5":
   "integrity" "sha1-KJ1L4s4AhdQPwSRMCxpUwARUYi8="
   "resolved" "https://registry.npmmirror.com/core-js/download/core-js-3.18.1.tgz"
@@ -3367,6 +3379,28 @@
   dependencies:
     "jsbn" "~0.1.0"
     "safer-buffer" "^2.1.0"
+
+"echarts-amap@1.0.0-rc.6":
+  "integrity" "sha1-V4KnTa7lLtRM4/j2JXdWF4PwnhY="
+  "resolved" "https://registry.nlark.com/echarts-amap/download/echarts-amap-1.0.0-rc.6.tgz"
+  "version" "1.0.0-rc.6"
+
+"echarts-liquidfill@^2.0.2":
+  "integrity" "sha1-BmjcYdh6YmIAMJC9MsVaqBCMJS4="
+  "resolved" "https://registry.nlark.com/echarts-liquidfill/download/echarts-liquidfill-2.0.6.tgz"
+  "version" "2.0.6"
+
+"echarts-wordcloud@^1.1.3":
+  "integrity" "sha1-B7FAyLp2sZwxe0PDEPPV3Jkon/I="
+  "resolved" "https://registry.npm.taobao.org/echarts-wordcloud/download/echarts-wordcloud-1.1.3.tgz?cache=0&sync_timestamp=1610777755404&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fecharts-wordcloud%2Fdownload%2Fecharts-wordcloud-1.1.3.tgz"
+  "version" "1.1.3"
+
+"echarts@^4.8.0", "echarts@^4.9.0", "echarts@>3.0.0":
+  "integrity" "sha1-qbm6oD8Doqcx5jQMVb77V6nhNH0="
+  "resolved" "https://registry.nlark.com/echarts/download/echarts-4.9.0.tgz?cache=0&sync_timestamp=1632191301834&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fecharts%2Fdownload%2Fecharts-4.9.0.tgz"
+  "version" "4.9.0"
+  dependencies:
+    "zrender" "4.3.2"
 
 "ee-first@1.1.1":
   "integrity" "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="
@@ -4269,6 +4303,11 @@
   "integrity" "sha1-5BK40z9eAGWTy9PO5t+fLOu+gCo="
   "resolved" "https://registry.nlark.com/graceful-fs/download/graceful-fs-4.2.8.tgz?cache=0&sync_timestamp=1628194078324&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fgraceful-fs%2Fdownload%2Fgraceful-fs-4.2.8.tgz"
   "version" "4.2.8"
+
+"gsap@^2.1.3":
+  "integrity" "sha1-xj7jpQ8LfcO0btCEW7DwkEn+uUQ="
+  "resolved" "https://registry.npmmirror.com/gsap/download/gsap-2.1.3.tgz"
+  "version" "2.1.3"
 
 "gzip-size@^5.0.0":
   "integrity" "sha1-y5vuaS+HwGErIyhAqHOQTkwTUnQ="
@@ -5944,6 +5983,11 @@
   "resolved" "https://registry.nlark.com/num2fraction/download/num2fraction-1.2.2.tgz"
   "version" "1.2.2"
 
+"numerify@1.2.9":
+  "integrity" "sha1-r0aWux1X+NOXCmFdiwzVPZMr1Vk="
+  "resolved" "https://registry.nlark.com/numerify/download/numerify-1.2.9.tgz"
+  "version" "1.2.9"
+
 "oauth-sign@~0.9.0":
   "integrity" "sha1-R6ewFrqmi1+g7PPe4IqFxnmsZFU="
   "resolved" "https://registry.nlark.com/oauth-sign/download/oauth-sign-0.9.0.tgz"
@@ -6876,6 +6920,15 @@
   "integrity" "sha1-llOgNvt8HuQjQvIyXM7v6jkmxI0="
   "resolved" "https://registry.nlark.com/punycode/download/punycode-1.3.2.tgz?cache=0&sync_timestamp=1622604519710&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fpunycode%2Fdownload%2Fpunycode-1.3.2.tgz"
   "version" "1.3.2"
+
+"pure-vue-chart@^0.4.0":
+  "integrity" "sha1-Od/lpqrpf6GmH67R2IWsxnOCjpE="
+  "resolved" "https://registry.nlark.com/pure-vue-chart/download/pure-vue-chart-0.4.0.tgz"
+  "version" "0.4.0"
+  dependencies:
+    "core-js" "^2.6.5"
+    "gsap" "^2.1.3"
+    "vue" "^2.6.10"
 
 "q@^1.1.2":
   "integrity" "sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc="
@@ -8166,6 +8219,11 @@
   "resolved" "https://registry.nlark.com/tslib/download/tslib-1.14.1.tgz?cache=0&sync_timestamp=1628722556410&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-1.14.1.tgz"
   "version" "1.14.1"
 
+"tslib@^2.3.0":
+  "integrity" "sha1-6KM1rdXOrlGqJh0ypJAVjvBC7wE="
+  "resolved" "https://registry.nlark.com/tslib/download/tslib-2.3.1.tgz?cache=0&sync_timestamp=1628722556410&other_urls=https%3A%2F%2Fregistry.nlark.com%2Ftslib%2Fdownload%2Ftslib-2.3.1.tgz"
+  "version" "2.3.1"
+
 "tty-browserify@0.0.0":
   "integrity" "sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY="
   "resolved" "https://registry.nlark.com/tty-browserify/download/tty-browserify-0.0.0.tgz"
@@ -8410,6 +8468,11 @@
   "resolved" "https://registry.nlark.com/utila/download/utila-0.4.0.tgz"
   "version" "0.4.0"
 
+"utils-lite@0.1.10":
+  "integrity" "sha1-0pCMBILiPDHmsIJVhUDnE0/619c="
+  "resolved" "https://registry.nlark.com/utils-lite/download/utils-lite-0.1.10.tgz"
+  "version" "0.1.10"
+
 "utils-merge@1.0.1":
   "integrity" "sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM="
   "resolved" "https://registry.nlark.com/utils-merge/download/utils-merge-1.0.1.tgz"
@@ -8419,6 +8482,17 @@
   "integrity" "sha1-sj5DWK+oogL+ehAK8fX4g/AgB+4="
   "resolved" "https://registry.nlark.com/uuid/download/uuid-3.4.0.tgz?cache=0&sync_timestamp=1622213136953&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fuuid%2Fdownload%2Fuuid-3.4.0.tgz"
   "version" "3.4.0"
+
+"v-charts@^1.19.0":
+  "integrity" "sha1-B7cBgAsVm9UUJk/8i/ErBAUULaM="
+  "resolved" "https://registry.npm.taobao.org/v-charts/download/v-charts-1.19.0.tgz"
+  "version" "1.19.0"
+  dependencies:
+    "echarts-amap" "1.0.0-rc.6"
+    "echarts-liquidfill" "^2.0.2"
+    "echarts-wordcloud" "^1.1.3"
+    "numerify" "1.2.9"
+    "utils-lite" "0.1.10"
 
 "v8-compile-cache@^2.0.3":
   "integrity" "sha1-LeGWGMZtwkfc+2+ZM4A12CRaLO4="
@@ -8536,7 +8610,7 @@
   "resolved" "https://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^2 || ^3.0.0-0", "vue@^2.4.3", "vue@^2.5.17", "vue@^2.6.11":
+"vue@^2 || ^3.0.0-0", "vue@^2.4.3", "vue@^2.5.17", "vue@^2.6.10", "vue@^2.6.11", "vue@>= 2.5 < 3", "vue@>2.0.0":
   "integrity" "sha1-5RqlJQJQ1Wmj+606ilpofWA24jU="
   "resolved" "https://registry.npmmirror.com/vue/download/vue-2.6.14.tgz"
   "version" "2.6.14"
@@ -8885,3 +8959,8 @@
     "is-ci" "^1.0.10"
     "normalize-path" "^1.0.0"
     "strip-indent" "^2.0.0"
+
+"zrender@^4.3.1", "zrender@4.3.2":
+  "integrity" "sha1-7HQy+UFcgsc1hLa3uMR+GwFiCcY="
+  "resolved" "https://registry.nlark.com/zrender/download/zrender-4.3.2.tgz"
+  "version" "4.3.2"

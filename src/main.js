@@ -6,8 +6,8 @@ import './assets/fonts/iconfont.css'
 import './plugins/elementUIImport.js'
 import './plugins/zktableImport.js'
 import './plugins/quillEditorImport'
+import echarts from 'echarts'
 import axios from 'axios'
-
 // axios
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 axios.interceptors.request.use(config => {
@@ -16,7 +16,7 @@ axios.interceptors.request.use(config => {
   return config
 })
 Vue.prototype.$axios = axios
-
+Vue.prototype.$echarts = echarts
 // Vue
 Vue.config.productionTip = false
 
