@@ -31,7 +31,7 @@
                          prop="order_price">
         </el-table-column>
         <el-table-column label="是否已付款">
-          <template scope="scope">
+          <template v-slot="scope">
             <el-tag type="success"
                     v-if="scope.row.pay_status==='1'">已付款</el-tag>
             <el-tag v-else
@@ -42,7 +42,7 @@
                          prop="is_send">
         </el-table-column>
         <el-table-column label="下单时间">
-          <template scope="scope">
+          <template v-slot="scope">
             {{scope.row.create_time | dateFomat}}
           </template>
         </el-table-column>

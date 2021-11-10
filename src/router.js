@@ -73,6 +73,7 @@ const routes = [{
 const router = new Router({
   routes
 })
+
 router.beforeEach((to, from, next) => {
   const tokenStr = window.sessionStorage.getItem('token')
   if (to.path === '/login') {

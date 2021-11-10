@@ -26,8 +26,7 @@
                 :data="cateList"
                 :expand-type="false"
                 :selection-type="false">
-        <template slot="isok"
-                  scope="scope">
+        <template v-slot:isok="scope">
           <i v-if="!scope.row.cat_deleted"
              class="el-icon-success greenIcon"></i>
           <i v-else

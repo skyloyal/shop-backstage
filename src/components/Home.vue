@@ -22,7 +22,11 @@
         <!-- 侧边栏菜单区域 -->
         <div class="toggle-button"
              @click="toggleCollapse">
-          |||
+          <!-- <span>|||</span> -->
+          <i class="el-icon-arrow-left"
+             v-show="!isCollapse"></i>
+          <i class="el-icon-arrow-right"
+             v-show="isCollapse"></i>
         </div>
         <el-menu :default-active="activePath"
                  background-color="#333744"
@@ -154,11 +158,11 @@ export default {
 }
 .el-aside {
   background-color: #333744;
-  color: #333;
   .toggle-button {
     background-color: #4a4f61;
     font-size: 12px;
     line-height: 24px;
+    height: 24px;
     color: white;
     text-align: center;
     cursor: pointer;

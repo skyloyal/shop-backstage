@@ -125,7 +125,7 @@ export default {
       position: absolute;
       bottom: 0px;
       width: 100%;
-      padding: 0 20px;
+      padding: 0 20px 0 0;
       box-sizing: border-box;
     }
   }
